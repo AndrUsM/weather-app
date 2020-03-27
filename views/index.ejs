@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title><%= title %></title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="container">
+    <fieldset>
+      <form action="/" method="post" class="block_flex block_flex_row width-75 block_position-center">
+        <input name="city" type="text" class="ghost-input input_wide" placeholder="Enter a City" required>
+        <input type="submit" class="button ghost-button modal_window__toggler" value="<%= button%>"/>
+      </form>
+      <% if(weather !== null){ %>
+      <section class="modal_window__content">
+        <main class="block_rounded">
+          <span id="close_button" class="modal_window__close_button">&times;</span>
+          <!-- TOP SECTION -->
+          <section class="block_grid block_grid_two-top">
+            <article class="text_align-center block__article">
+              <img class="image__weather_status" src="<%= JSON.parse(weather).current.imageUrl%>" alt="">
+              <p class="text_appointment-subheader"><%= JSON.parse(weather).location.name %></h>
+                <p class="text_degree text_appointment-subheader"><%= JSON.parse(weather).current.temperature %></p>
+            </article>
+            <!-- SECOND ARTICLE: INFO ABOUT CURRENT DAY -->
+            <article class="text_align-center block__article">
+              <h2><%= JSON.parse(weather).current.day %></h2>
+              <table class="table">
+                <tr class="table__row">
+                  <th class="table__header">Feels like:</th>
+                  <td class="text_degree table__data"><%= JSON.parse(weather).current.feelslike %></td>
+                </tr>
+                <tr class="table__row">
+                  <th class="table__header">Humidity:</th>
+                  <td class="text_humadity table__data"><%= JSON.parse(weather).current.humidity %></td>
+                </tr>
+                <tr class="table__row">
+                  <th class="table__header">windspeed:</th>
+                  <td class="table__data"><%= JSON.parse(weather).current.windspeed %></td>
+                </tr>
+              </table>
+            </article>
+          </section>
+          <section class="block_flex block_flex_row"">
+            <% for(let i = 0; i < JSON.parse(weather).forecast.length; i++){ %>
+            <article class=" block_flex_row__item text_align-center block__article">
+            <h2><%= JSON.parse(weather).forecast[i].day%></h2>
+            <h3><%= JSON.parse(weather).forecast[i].skytextday %></h3>
+            <table class="table text_align-center">
+              <tr class="table__row">
+                <th class="table__header">Max:</th>
+                <td class="table__data text_degree"><%= JSON.parse(weather).forecast[i].high %></td>
+              </tr>
+              <tr class="table__row">
+                <th class="table__header">Min:</th>
+                <td class="table__data text_degree"><%= JSON.parse(weather).forecast[i].low %></td>
+              </tr>
+              <tr class="table__row">
+                <th class="table__header">Precip:</th>
+                <td class="table__data text_mm"><%= JSON.parse(weather).forecast[i].precip%></td>
+              </tr>
+            </table>
+            </article>
+            <% } %>
+          </section>
+        </main>
+      </section>
+      <% } %>
+
+      <% if(error !== null){ %>
+      <p><%= error %></p>
+      <% } %>
+    </fieldset>
+  </div>
+  <script defer src="/javascripts/script.js"></script>
+</body>
+
+</html>

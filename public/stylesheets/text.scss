@@ -1,0 +1,57 @@
+.text {
+	&_align {
+		&-center {
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	&_appointment {
+		&-header {
+			font-size: 2.25rem;
+			font-weight: 900;
+		}
+		&-subheader {
+			font-size: 2rem;
+			padding-top: 0.75rem;
+			padding-bottom: 0.75rem;
+			font-weight: 700;
+		}
+		&-base {
+			font-size: 1.15rem;
+			font-weight: 400;
+			padding-top: 0.25rem;
+			padding-bottom: 0.25rem;
+		}
+	}
+	&_degree {
+		&::after {
+			content: "°C";
+		}
+	}
+	&_meter {
+		&::after {
+			content: "м/с";
+		}
+	}
+	&_pressure {
+		&::after {
+			content: "бар";
+		}
+	}
+	&_humadity {
+		&::after {
+			content: "г/м³";
+		}
+	}
+	&_mm-rt_st {
+		&::after {
+			content: "мм.рт.ст.";
+		}
+	}
+	&_mm {
+		&::after {
+			content: "мм";
+		}
+	}
+}

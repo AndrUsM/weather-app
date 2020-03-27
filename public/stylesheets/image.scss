@@ -1,0 +1,29 @@
+.image {
+	width: inherit;
+	height: fit-content;
+	width: 17rem;
+	height: 11rem;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 0 auto 1rem auto;
+	border-radius: 0.5rem;
+
+	&__sun {
+		background: url("/images/sun.jpeg");
+	}
+	&__cloud {
+		background: url("/images/cloud.jpeg");
+	}
+	&__wind {
+		background: url("/images/wind.jpeg");
+	}
+	&__rain {
+		background: url("/images/rain.jpeg");
+	}
+	&__weather_status {
+		@extend .block_animated-spin;
+		width: 6rem;
+		height: auto;
+		padding: 0.25rem;
+	}
+}
