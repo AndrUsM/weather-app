@@ -293,7 +293,7 @@ template, [hidden] {
   animation-name: spin-half;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  animation-duration: 40s; }
+  animation-duration: 100s; }
 
 .block_body {
   background: rgba(16, 20, 43, 0.9);
@@ -400,7 +400,8 @@ template, [hidden] {
   font-weight: 700;
   text-align: center;
   border-radius: 1rem 0 0 1rem;
-  outline: none; }
+  outline: none;
+  border: 2px solid transparent; }
   .input_wide:hover {
     background: inherit;
     color: #fff;
